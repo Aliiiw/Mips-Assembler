@@ -89,6 +89,83 @@ def assembler(command, operator1, operator2, operator3):
         machineCode += registersValue[operator1]
         binary =  bin(int(operator3))
         machineCode += (16 - len(binary[2::])) * "0" + binary[2::]
+    
+    elif command == "lw":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        binary =  bin(int(operator2))
+        machineCode += (16 - len(binary[2::])) * "0" + binary[2::]
+
+    elif command == "sw":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        binary =  bin(int(operator2))
+        machineCode += (16 - len(binary[2::])) * "0" + binary[2::]
+
+    elif command == "lh":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        binary =  bin(int(operator2))
+        machineCode += (16 - len(binary[2::])) * "0" + binary[2::]
+
+    elif command == "lhu":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        binary =  bin(int(operator2))
+        machineCode += (16 - len(binary[2::])) * "0" + binary[2::]
+
+    elif command == "sh":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        binary =  bin(int(operator2))
+        machineCode += (16 - len(binary[2::])) * "0" + binary[2::]
+
+    elif command == "lb":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        binary =  bin(int(operator2))
+        machineCode += (16 - len(binary[2::])) * "0" + binary[2::]
+
+    elif command == "lbu":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        binary =  bin(int(operator2))
+        machineCode += (16 - len(binary[2::])) * "0" + binary[2::]
+
+    elif command == "sb":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        binary =  bin(int(operator2))
+        machineCode += (16 - len(binary[2::])) * "0" + binary[2::]
+
+    elif command == "and":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator2]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        machineCode += "00000100100"
+        
+    elif command == "or":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator2]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        machineCode += "00000100101"
+
+    elif command == "nor":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator2]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        machineCode += "00000100111"
 
     
     return machineCode
