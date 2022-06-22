@@ -65,3 +65,25 @@ registersValue = {
     "ra" : "11111",
 
 }
+
+with open('input.txt') as file:  
+
+    allString = file.read()
+    updateString = allString.splitlines()
+
+    for i in range(len(updateString)): 
+
+        finalResult = []                                        
+        instruction = updateString[i].split(" ")
+        
+        command = instruction[0].lower()                      
+        registers = instruction[1].split(",")                                        
+
+        operator1 = registers[0].lower()                                              
+        operator2 = registers[1].lower()
+        operator3 = registers[2].lower()
+
+        machineCode = assembler(command, operator1, operator2, operator3)
+        finalResult += [command]
+        finalResult += [machineCode]
+        print(finalResult)
