@@ -1,11 +1,3 @@
-
-# Mips-Assembler
-this is the assembler for the mips cpu in python
-
-in this project 25 commands have been covered:
-add sub addi lw sw lh lhu sh lb lbu sb and or nor andi ori sll srl beq 
-bne slt sltu slti j jr jal 
-
 this is the example how to get input :         regisers,numbers(imm in 10 base)
 add t1,t2,t3
 sub k0,sp,v1
