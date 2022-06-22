@@ -1,3 +1,10 @@
+'''
+Project Goal: We want to see the machine code of an assembly instruction for mips cpu
+Project Name: Assembler with python
+Author: Ali Rahimi
+
+'''
+
 commandsOpCodes = {
 
     "add" : "000000",
