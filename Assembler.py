@@ -65,6 +65,8 @@ registersValue = {
     "ra" : "11111",
 
 }
+
+
 def assembler(command, operator1, operator2, operator3):
 
     machineCode = ""
@@ -89,7 +91,7 @@ def assembler(command, operator1, operator2, operator3):
         machineCode += registersValue[operator1]
         binary =  bin(int(operator3))
         machineCode += (16 - len(binary[2::])) * "0" + binary[2::]
-    
+
     elif command == "lw":
         machineCode += commandsOpCodes[command]
         machineCode += registersValue[operator3]
@@ -201,8 +203,59 @@ def assembler(command, operator1, operator2, operator3):
         machineCode += binary
         machineCode += "000010"
 
-    
+    elif command == "beq":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator1]
+        machineCode += registersValue[operator2]
+        binary =  bin(int(operator3))
+        machineCode += (16 - len(binary[2::])) * "0" + binary[2::]
+        
+    elif command == "bne":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator1]
+        machineCode += registersValue[operator2]
+        binary =  bin(int(operator3))
+        machineCode += (16 - len(binary[2::])) * "0" + binary[2::]
+
+    elif command == "slt":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator2]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        machineCode += "00000101010"
+
+    elif command == "sltu":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator2]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        machineCode += "00000101011"
+
+    elif command == "slti":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator2]
+        machineCode += registersValue[operator1]
+        binary =  bin(int(operator3))
+        machineCode += (16 - len(binary[2::])) * "0" + binary[2::]
+
+    elif command == "j":
+        machineCode += commandsOpCodes[command]
+        binary =  bin(int(operator1))
+        machineCode += (26 - len(binary[2::])) * "0" + binary[2::]
+
+    elif command == "jr":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator1]
+        machineCode += "000000000000000001000"
+        
+    elif command == "jal":
+        machineCode += commandsOpCodes[command]
+        binary =  bin(int(operator1))
+        machineCode += (26 - len(binary[2::])) * "0" + binary[2::]
+
+        
     return machineCode
+
 
 with open('input.txt') as file:  
 
