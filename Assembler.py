@@ -65,6 +65,33 @@ registersValue = {
     "ra" : "11111",
 
 }
+def assembler(command, operator1, operator2, operator3):
+
+    machineCode = ""
+
+    if command == "add":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator2]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        machineCode += "00000100000"
+
+    elif command == "sub":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator2]
+        machineCode += registersValue[operator3]
+        machineCode += registersValue[operator1]
+        machineCode += "00000100010"
+        
+    elif command == "addi":
+        machineCode += commandsOpCodes[command]
+        machineCode += registersValue[operator2]
+        machineCode += registersValue[operator1]
+        binary =  bin(int(operator3))
+        machineCode += (16 - len(binary[2::])) * "0" + binary[2::]
+
+    
+    return machineCode
 
 with open('input.txt') as file:  
 
